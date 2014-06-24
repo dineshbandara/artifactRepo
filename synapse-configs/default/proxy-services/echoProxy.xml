@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="echoProxy"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <endpoint>
+         <address uri="https://localhost:8243/services/echo"/>
+      </endpoint>
+      <inSequence>
+         <log level="full"/>
+      </inSequence>
+      <outSequence>
+         <log level="full"/>
+         <send/>
+      </outSequence>
+   </target>
+   <publishWSDL uri="https://localhost:8243/services/echo?wsdl"/>
+</proxy>
